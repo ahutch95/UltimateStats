@@ -1,0 +1,6 @@
+framework module Pods_Ultimate_Stats {
+  umbrella header "Pods-Ultimate Stats-umbrella.h"
+
+  export *
+  module * { export * }
+}
