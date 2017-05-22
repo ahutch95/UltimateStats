@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Home: UIViewController {
+class TeamsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
