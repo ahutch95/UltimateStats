@@ -335,7 +335,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="3A2-7l-EaU" kind="show" id="Dtl-C3-Qej"/>
+                                            <segue destination="KRk-zE-UQq" kind="show" id="X0c-xt-qBf"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -357,6 +357,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziX-28-7DC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4698" y="89"/>
+        </scene>
+        <!--Roster-->
+        <scene sceneID="1Ua-tN-hH2">
+            <objects>
+                <tableViewController id="KRk-zE-UQq" customClass="RosterTableViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Tg6-61-FoN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterCell" id="br2-Mv-7tR">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="br2-Mv-7tR" id="eg9-sv-uS7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KRk-zE-UQq" id="YVX-q0-QuY"/>
+                            <outlet property="delegate" destination="KRk-zE-UQq" id="KXK-0j-QiH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Roster" id="uZQ-28-HUV">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UwM-QU-Xhs">
+                            <connections>
+                                <action selector="finalizeRoster:" destination="KRk-zE-UQq" id="OHF-dx-Slt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUP-oF-kbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5490" y="89"/>
         </scene>
         <!--Choose Players-->
         <scene sceneID="pT5-7j-RNg">
@@ -403,7 +438,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw1-lD-5Rr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TxS-qM-b2T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5646" y="89"/>
+            <point key="canvasLocation" x="6457" y="224"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SPT-2a-cNM">
