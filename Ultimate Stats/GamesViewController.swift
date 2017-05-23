@@ -17,7 +17,8 @@ class GamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        createNewUserInDatabase()
         
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref = FIRDatabase.database().reference()
@@ -26,11 +27,11 @@ class GamesViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             let username = value?["name"] as? String ?? ""
             
-            // ...
+            
         }) { (error) in
             print(error.localizedDescription)
         }
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,6 +45,39 @@ class GamesViewController: UIViewController {
         //rootData.childbyAppendingPath("users/mchen/name")
         
     }
+    
+    func createNewUserInDatabase(){
+        var userExsists = false
+        
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref = FIRDatabase.database().reference()
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let username = value?["email"] as? String ?? ""
+            if(username != ""){
+                userExsists = true
+            }
+            
+            if(userExsists == false){
+                let email = FIRAuth.auth()?.currentUser?.email
+                let user = ["games": ["none"],
+                            "teams": ["none"],
+                            "email": email] as [String : Any]
+                
+                self.ref.child("users").child(userID!).setValue(user)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+        
+       
+        
+        
+        
+    }
+
     
     
 }

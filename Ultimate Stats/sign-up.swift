@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUp: UIViewController {
     
@@ -56,6 +57,7 @@ class SignUp: UIViewController {
                 }
             }
         }
+        
     }
     
    @IBAction func goToLogIn(){
@@ -63,4 +65,5 @@ class SignUp: UIViewController {
          self.present(vc!, animated: true, completion: nil)
         
     }
-}
+    
+    }
