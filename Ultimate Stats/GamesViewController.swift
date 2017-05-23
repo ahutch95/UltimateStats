@@ -11,27 +11,39 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class GamesViewController: UIViewController {
+class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var ref:FIRDatabaseReference!
+     var users: [String] = []
     
+    
+    @IBOutlet weak var tableView: UITableView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createNewUserInDatabase()
+        ref = FIRDatabase.database().reference()
+
         
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref = FIRDatabase.database().reference()
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            let username = value?["name"] as? String ?? ""
-            
-            
+        ref.child("users").child(userID!).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
+              var newItems: [String] = []
+            var value = (snapshot.value as? Array<String>)!
+          //  let username = value["email"] as? String ?? ""
+           // let games = value["gmaes"].value as? Array??
+            for item in value{
+                newItems.append(item)
+            }
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.users = newItems
+            self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,16 +51,13 @@ class GamesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getData(){
-        
-        //var  rootData = Firebase(url: "https//ultimate-stats-tracker.firebaseio.com/")
-        //rootData.childbyAppendingPath("users/mchen/name")
-        
-    }
+
     
+    //creates new user
     func createNewUserInDatabase(){
         var userExsists = false
         
+        //checks if user exsists already
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref = FIRDatabase.database().reference()
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -58,6 +67,7 @@ class GamesViewController: UIViewController {
                 userExsists = true
             }
             
+            //if no user with that id then create new user
             if(userExsists == false){
                 let email = FIRAuth.auth()?.currentUser?.email
                 let user = ["games": ["none"],
@@ -70,14 +80,23 @@ class GamesViewController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
-
-        
-       
-        
-        
-        
     }
 
+      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
     
-    
+      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! iQuizTableViewCell
+        let groceryItem = users[indexPath.row]
+        print("cell # \(indexPath.row) selected")
+
+        cell.questionLabel.text = groceryItem
+       
+        
+        return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // cell selected code here
+    }
 }

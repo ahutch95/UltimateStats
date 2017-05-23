@@ -197,7 +197,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="75" id="qHg-uK-Fal" customClass="iQuizTableViewCell" customModule="Ultimate_Stats" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="75" id="qHg-uK-Fal" customClass="iQuizTableViewCell" customModule="Ultimate_Stats" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qHg-uK-Fal" id="U02-s2-wGZ">
@@ -247,6 +247,9 @@
                         <color key="backgroundColor" red="1" green="0.97020126547359453" blue="0.96387110550961363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Lo-qb-haj"/>
+                    <connections>
+                        <outlet property="tableView" destination="dtp-Rz-bDC" id="Wht-XP-Pef"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1k8-HN-Kbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
