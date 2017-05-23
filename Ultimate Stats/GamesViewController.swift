@@ -9,15 +9,30 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class GamesViewController: UIViewController {
-
+    
+    var ref:FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //var root =
-        // Do any additional setup after loading the view.
+        
+        
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref = FIRDatabase.database().reference()
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let username = value?["name"] as? String ?? ""
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,6 +44,6 @@ class GamesViewController: UIViewController {
         //rootData.childbyAppendingPath("users/mchen/name")
         
     }
-
-
+    
+    
 }
