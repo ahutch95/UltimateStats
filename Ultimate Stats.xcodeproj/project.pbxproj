@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49223B621ED3526900A92878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49223B611ED3526900A92878 /* GoogleService-Info.plist */; };
-		49223B631ED3526900A92878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49223B611ED3526900A92878 /* GoogleService-Info.plist */; };
-		49223B641ED3526900A92878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49223B611ED3526900A92878 /* GoogleService-Info.plist */; };
 		49223B661ED3562900A92878 /* sign-up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B651ED3562900A92878 /* sign-up.swift */; };
 		49223B671ED3562900A92878 /* sign-up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B651ED3562900A92878 /* sign-up.swift */; };
 		49223B681ED3562900A92878 /* sign-up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B651ED3562900A92878 /* sign-up.swift */; };
 		49223B6A1ED365CA00A92878 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B691ED365CA00A92878 /* Login.swift */; };
 		49223B6B1ED365CA00A92878 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B691ED365CA00A92878 /* Login.swift */; };
 		49223B6C1ED365CA00A92878 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B691ED365CA00A92878 /* Login.swift */; };
+		7ADDA7841ED3C06C0054A1F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */; };
 		9D50148F1ECA5F6800361E01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50148E1ECA5F6800361E01 /* AppDelegate.swift */; };
 		9D5014911ECA5F6800361E01 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5014901ECA5F6800361E01 /* TeamsViewController.swift */; };
 		9D5014941ECA5F6800361E01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5014921ECA5F6800361E01 /* Main.storyboard */; };
@@ -46,9 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		49223B611ED3526900A92878 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49223B651ED3562900A92878 /* sign-up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "sign-up.swift"; sourceTree = "<group>"; };
 		49223B691ED365CA00A92878 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82D2F073F71BFDE4D0FB1BB3 /* Pods-Ultimate Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate Stats/Pods-Ultimate Stats.release.xcconfig"; sourceTree = "<group>"; };
 		9D50148B1ECA5F6800361E01 /* Ultimate Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D50148E1ECA5F6800361E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +130,7 @@
 				9D5014921ECA5F6800361E01 /* Main.storyboard */,
 				9D5014951ECA5F6800361E01 /* Assets.xcassets */,
 				9D5014971ECA5F6800361E01 /* LaunchScreen.storyboard */,
-				49223B611ED3526900A92878 /* GoogleService-Info.plist */,
+				7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */,
 				9D50149A1ECA5F6800361E01 /* Info.plist */,
 				49223B651ED3562900A92878 /* sign-up.swift */,
 				49223B691ED365CA00A92878 /* Login.swift */,
@@ -281,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5014991ECA5F6800361E01 /* LaunchScreen.storyboard in Resources */,
-				49223B621ED3526900A92878 /* GoogleService-Info.plist in Resources */,
+				7ADDA7841ED3C06C0054A1F8 /* GoogleService-Info.plist in Resources */,
 				9D5014961ECA5F6800361E01 /* Assets.xcassets in Resources */,
 				9D5014941ECA5F6800361E01 /* Main.storyboard in Resources */,
 			);
@@ -291,7 +289,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49223B631ED3526900A92878 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49223B641ED3526900A92878 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +518,7 @@
 			baseConfigurationReference = A09F60DE35E4B17C3D743F22 /* Pods-Ultimate Stats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Ultimate Stats/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "INFO449.Ultimate-Stats";
@@ -535,6 +532,7 @@
 			baseConfigurationReference = 82D2F073F71BFDE4D0FB1BB3 /* Pods-Ultimate Stats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Ultimate Stats/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "INFO449.Ultimate-Stats";
