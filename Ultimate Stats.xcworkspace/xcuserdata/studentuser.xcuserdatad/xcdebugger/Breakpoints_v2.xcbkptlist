@@ -47,111 +47,52 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
             endingLineNumber = "6">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/GamesViewController.swift"
+            timestampString = "517199406.31808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.__deallocating_deinit"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #1)"
                   moduleName = "Ultimate Stats"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.871917"
+                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "517199413.673135"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "471">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.init (style : __C.UITableViewStyle) -&gt; Ultimate_Stats.Home"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #1).(implicit closure #1)"
                   moduleName = "Ultimate Stats"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.874427"
+                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "517199413.675944"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "65">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.__allocating_init (style : __C.UITableViewStyle) -&gt; Ultimate_Stats.Home"
-                  moduleName = "Ultimate Stats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.876749"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Ultimate_Stats.Home"
-                  moduleName = "Ultimate Stats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.879454"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "118">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Ultimate_Stats.Home"
-                  moduleName = "Ultimate Stats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.881835"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Ultimate_Stats.Home&gt;"
-                  moduleName = "Ultimate Stats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.884499"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ultimate_Stats.Home.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Ultimate_Stats.Home&gt;"
-                  moduleName = "Ultimate Stats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/Home.swift"
-                  timestampString = "517174493.887348"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
-                  offsetFromSymbolStart = "105">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
