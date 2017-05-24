@@ -30,7 +30,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ref = FIRDatabase.database().reference()
         ref.child("users").child(userID!).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
               var newItems: [String] = []
-            if(snapshot.value != null){
+            if !(snapshot.value is NSNull){
             var value = (snapshot.value as? Array<String>)!
           
             for item in value{
