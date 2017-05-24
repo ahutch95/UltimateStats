@@ -30,9 +30,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ref = FIRDatabase.database().reference()
         ref.child("users").child(userID!).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
               var newItems: [String] = []
+            if(snapshot.value != null){
             var value = (snapshot.value as? Array<String>)!
-          //  let username = value["email"] as? String ?? ""
-           // let games = value["gmaes"].value as? Array??
+          
             for item in value{
                 newItems.append(item)
             }
@@ -40,6 +40,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.tableView.dataSource = self
             self.users = newItems
             self.tableView.reloadData()
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
