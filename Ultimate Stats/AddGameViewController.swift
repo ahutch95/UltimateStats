@@ -9,7 +9,14 @@
 import UIKit
 class AddGameViewController: UIViewController {
     
+    @IBOutlet weak var name: UITextField!
     
+    @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var location: UITextField!
+    
+    @IBAction func upload(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
