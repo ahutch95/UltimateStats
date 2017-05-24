@@ -18,6 +18,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
+    // Test comment
     tableView.delegate = self
     tableView.dataSource = self
   }
