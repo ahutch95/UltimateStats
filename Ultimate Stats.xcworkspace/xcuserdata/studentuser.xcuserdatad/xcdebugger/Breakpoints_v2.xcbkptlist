@@ -328,12 +328,12 @@
                   moduleName = "Ultimate Stats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
-                  timestampString = "517279497.512661"
+                  timestampString = "517280525.307691"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "461">
+                  offsetFromSymbolStart = "548">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -343,12 +343,12 @@
                   moduleName = "Ultimate Stats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/studentuser/Desktop/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
-                  timestampString = "517279497.515327"
+                  timestampString = "517280525.315575"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "2119">
+                  offsetFromSymbolStart = "2224">
                </Location>
             </Locations>
          </BreakpointContent>
