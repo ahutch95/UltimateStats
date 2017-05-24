@@ -13,10 +13,10 @@ class Player: NSObject {
     let fName: String
     let lName: String
     let position: String
-    var teams: [Team]
-    var stats: [String:Any]
+    var teams: [Team]?
+    var stats: [String:Int]
     
-    init(_ fName: String ,_  lName: String ,_  position: String,_  teams: [Team],_  stats: [String:Any]) {
+    init(_ fName: String ,_  lName: String ,_  position: String,_  teams: [Team]?,_  stats: [String:Int]) {
         self.fName = fName
         self.lName = lName
         self.position = position
@@ -38,7 +38,7 @@ class Team: NSObject {
 class Game: NSObject {
     let location: Location
     let date: Date
-    var teams: [String:Int]
+    var teams: [String:Int] //team name: score
     
     init(_ location: Location, _ date: Date, _ teams:[String:Int]) {
         self.location = location
@@ -54,5 +54,22 @@ class Location: NSObject {
     init(_ name: String, _ address: String) {
         self.name = name
         self.address = address
+    }
+}
+
+class Stats: NSObject {
+    var goals: Int
+    var assists: Int
+    var turns: Int
+    var Ds: Int
+    
+    override init() {
+        self.goals = 0
+        self.assists = 0
+        self.turns = 0
+        self.Ds = 0
+    }
+    func getDict() -> [String:Int] {
+        return ["Goals": goals , "Assists": assists , "Turns": turns , "Ds": Ds]
     }
 }
