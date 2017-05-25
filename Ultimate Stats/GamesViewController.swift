@@ -15,7 +15,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var ref:FIRDatabaseReference!
      var users: [String] = []
-    
+    var first = ""
+    var last = ""
     
     @IBOutlet weak var tableView: UITableView!
    
@@ -71,9 +72,14 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //if no user with that id then create new user
             if(userExsists == false){
                 let email = FIRAuth.auth()?.currentUser?.email
-                let user = ["games": ["none"],
-                            "teams": ["none"],
-                            "email": email] as [String : Any]
+                let user = ["email": email,
+                            "firstName": self.first,
+                            "lastName": self.last,
+                            "goals": 0,
+                            "assists": 0,
+                            "turns": 0,
+                            "defends": 0,
+                            "teams": ["none"]] as [String : Any]
                 
                 self.ref.child("users").child(userID!).setValue(user)
             }

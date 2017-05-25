@@ -16,6 +16,9 @@ class SignUp: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
     
+    @IBOutlet weak var last: UITextField!
+    @IBOutlet weak var first: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,14 +41,18 @@ class SignUp: UIViewController {
             present(alertController, animated: true, completion: nil)
             
         } else {
+           
+            
             FIRAuth.auth()?.createUser(withEmail: username.text!, password: password.text!) { (user, error) in
                 
                 if error == nil {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "goHome", sender: self)
+
+                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                   // self.present(vcs, animated: true, completion: nil)
                     
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -58,6 +65,14 @@ class SignUp: UIViewController {
             }
         }
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let controller = segue.destination as! GamesViewController
+        controller.first = first.text!
+        controller.last = last.text!
+        
+       
     }
     
    @IBAction func goToLogIn(){
