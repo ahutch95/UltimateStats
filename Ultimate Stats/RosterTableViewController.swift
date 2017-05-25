@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class RosterTableViewController: UITableViewController {
     
-    var currentRoster = ["player1", "player2", "player3"]
+    var currentRoster = [""]
     var availablePlayers = ["player4", "player5"]
     
     var toAdd = [] as [String]
@@ -18,12 +21,38 @@ class RosterTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Get Roseter names
+        
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+              
+                for (key, values) in value {
+                    print(key)
+                    print(values)
+                   let fuck = values
+                    
+                    print(key)
+                   
+                    ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
+                        var name = (snapshot.value as? String)!
+                        self.currentRoster.append(name)
+                        print(name)
+                         self.tableView.reloadData()
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        self.tableView.reloadData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {

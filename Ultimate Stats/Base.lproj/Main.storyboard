@@ -53,7 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="I6X-UY-afF" eventType="touchUpInside" id="pdI-Vl-Ry9"/>
-                                    <segue destination="ljx-FU-UDS" kind="showDetail" identifier="goHome" id="EZa-P9-iDC"/>
+                                    <segue destination="ljx-FU-UDS" kind="showDetail" identifier="goHome" id="MqJ-wy-pYE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-ij-9c3">
@@ -965,6 +965,6 @@
         <image name="Teams" width="40" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EZa-P9-iDC"/>
+        <segue reference="MqJ-wy-pYE"/>
     </inferredMetricsTieBreakers>
 </document>
