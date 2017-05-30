@@ -134,6 +134,7 @@ class RosterTableViewController: UITableViewController {
     }
 
     @IBAction func finalizeRoster(_ sender: Any) {
+        //update roster in firebase
         for player in toAdd {
             currentRoster.append(player)
             availablePlayers.remove(at: availablePlayers.index(of: player)!)

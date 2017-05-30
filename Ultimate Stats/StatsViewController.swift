@@ -12,7 +12,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @IBOutlet var tableView: UITableView!
     
-    var players: [String]
+    var players: [String] = []
   
   // should get all players from firebase
     //let players = ["player1", "player2", "player3"]
@@ -49,6 +49,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // update stats in firebase and pop vc
         // for each cell in the table
         // get each cell as a statstableviewcell
+        self.navigationController?.popViewController(animated: true)
     }
   
   /*

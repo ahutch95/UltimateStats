@@ -17,15 +17,14 @@ class AddGameViewController: UIViewController {
     
     @IBOutlet weak var name: UITextField!
     
-    @IBOutlet weak var date: UITextField!
-    
     @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func upload(_ sender: Any) {
         let userID = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
-        
-        let game = ["name":name.text,"date":date.text,"location":location.text] as [String : Any]
+        print(datePicker.date.description)
+        let game = ["name":name.text,"date":datePicker.date.description,"location":location.text] as [String : Any]
         
         ref.child("users").child(userID!).child("games").childByAutoId().setValue(game)
         

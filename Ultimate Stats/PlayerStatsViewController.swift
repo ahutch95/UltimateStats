@@ -59,11 +59,11 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddStats" {
             let destination = segue.destination as! StatsViewController
-            var keys: [String]
+            var keys: [String] = []
             for player in playerMap {
-                
+                keys.append(contentsOf: Array((player.keys)))
             }
-            destination.players =
+            destination.players = keys
         }
     }
 
