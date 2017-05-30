@@ -11,8 +11,11 @@ import UIKit
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet var tableView: UITableView!
+    
+    var players: [String]
   
-  let players = ["player1", "player2", "player3"]
+  // should get all players from firebase
+    //let players = ["player1", "player2", "player3"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,6 +45,11 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     return cell
   }
   
+    @IBAction func updateStats(_ sender: Any) {
+        // update stats in firebase and pop vc
+        // for each cell in the table
+        // get each cell as a statstableviewcell
+    }
   
   /*
    // MARK: - Navigation

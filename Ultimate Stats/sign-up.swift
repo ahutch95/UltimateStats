@@ -49,7 +49,10 @@ class SignUp: UIViewController {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-                    self.performSegue(withIdentifier: "goHome", sender: self)
+                
+                    
+                    
+                    //self.performSegue(withIdentifier: "goHome", sender: self)
 
                     //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                    // self.present(vcs, animated: true, completion: nil)
@@ -68,7 +71,7 @@ class SignUp: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let controller = segue.destination as! GamesViewController
+        let controller = segue.destination as! HomeViewController
         controller.first = first.text!
         controller.last = last.text!
         

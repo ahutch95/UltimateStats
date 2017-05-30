@@ -30,6 +30,8 @@
 		9D5014A41ECA5F6800361E01 /* Ultimate_StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5014A31ECA5F6800361E01 /* Ultimate_StatsTests.swift */; };
 		9D5014AF1ECA5F6800361E01 /* Ultimate_StatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5014AE1ECA5F6800361E01 /* Ultimate_StatsUITests.swift */; };
 		9D664B2F1ED510A500E75F0C /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D664B2E1ED510A500E75F0C /* Objects.swift */; };
+		9D7676A11EDE290C00DAB173 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7676A01EDE290C00DAB173 /* HomeViewController.swift */; };
+		9D7676A31EDE309200DAB173 /* PlayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7676A21EDE309200DAB173 /* PlayerCellView.swift */; };
 		9DF9246F1ED38B6100293B8E /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9246E1ED38B6100293B8E /* GamesViewController.swift */; };
 		9DF924711ED38B6F00293B8E /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF924701ED38B6F00293B8E /* PlayerStatsViewController.swift */; };
 		E9CCDD7539BC08148115B50E /* Pods_Ultimate_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE2F725680514600DF7824F /* Pods_Ultimate_Stats.framework */; };
@@ -79,6 +81,8 @@
 		9D5014AE1ECA5F6800361E01 /* Ultimate_StatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_StatsUITests.swift; sourceTree = "<group>"; };
 		9D5014B01ECA5F6800361E01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D664B2E1ED510A500E75F0C /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		9D7676A01EDE290C00DAB173 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
+		9D7676A21EDE309200DAB173 /* PlayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCellView.swift; sourceTree = "<group>"; };
 		9DF9246E1ED38B6100293B8E /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		9DF924701ED38B6F00293B8E /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
 		A09F60DE35E4B17C3D743F22 /* Pods-Ultimate Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate Stats/Pods-Ultimate Stats.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		9D50148D1ECA5F6800361E01 /* Ultimate Stats */ = {
 			isa = PBXGroup;
 			children = (
+				9D7676A01EDE290C00DAB173 /* HomeViewController.swift */,
 				9D50148E1ECA5F6800361E01 /* AppDelegate.swift */,
 				9D5014921ECA5F6800361E01 /* Main.storyboard */,
 				9D5014951ECA5F6800361E01 /* Assets.xcassets */,
@@ -164,6 +169,7 @@
 				49223B791ED5EA1F00A92878 /* AddGameViewController.swift */,
 				5E35DA8A1ED62EE4004330E1 /* StatsTableViewCell.swift */,
 				5E35DA8E1ED631AF004330E1 /* StatsViewController.swift */,
+				9D7676A21EDE309200DAB173 /* PlayerCellView.swift */,
 			);
 			path = "Ultimate Stats";
 			sourceTree = "<group>";
@@ -387,11 +393,13 @@
 				9D5014911ECA5F6800361E01 /* TeamsViewController.swift in Sources */,
 				9D664B2F1ED510A500E75F0C /* Objects.swift in Sources */,
 				5E35DA8B1ED62EE4004330E1 /* StatsTableViewCell.swift in Sources */,
+				9D7676A31EDE309200DAB173 /* PlayerCellView.swift in Sources */,
 				49223B7A1ED5EA1F00A92878 /* AddGameViewController.swift in Sources */,
 				9DF924711ED38B6F00293B8E /* PlayerStatsViewController.swift in Sources */,
 				9D2AFDC71ED3D5B5003A84B0 /* PlayerSelectTableViewController.swift in Sources */,
 				9D50148F1ECA5F6800361E01 /* AppDelegate.swift in Sources */,
 				9D2AFDC91ED3D785003A84B0 /* AddTeamTableViewController.swift in Sources */,
+				9D7676A11EDE290C00DAB173 /* HomeViewController.swift in Sources */,
 				49223B661ED3562900A92878 /* sign-up.swift in Sources */,
 				49223B6A1ED365CA00A92878 /* Login.swift in Sources */,
 				5E35DA8F1ED631AF004330E1 /* StatsViewController.swift in Sources */,
