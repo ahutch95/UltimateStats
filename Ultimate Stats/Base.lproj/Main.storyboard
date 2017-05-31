@@ -111,6 +111,8 @@
                         <color key="backgroundColor" red="0.18580469196652682" green="0.67626302432910446" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="first" destination="Icn-l5-U1f" id="YKg-El-T8n"/>
+                        <outlet property="last" destination="agS-o4-s1j" id="RU4-LV-NJJ"/>
                         <outlet property="password" destination="lcH-86-yad" id="MuP-gc-k9X"/>
                         <outlet property="username" destination="8Ry-kC-vLR" id="Cs6-7D-mEm"/>
                     </connections>
@@ -307,10 +309,10 @@
             </objects>
             <point key="canvasLocation" x="5490" y="89"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Games View Controller-->
         <scene sceneID="SPT-2a-cNM">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" customClass="GamesViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UA5-z4-niJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

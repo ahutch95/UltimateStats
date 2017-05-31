@@ -15,7 +15,8 @@ class SignUp: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
-    
+    @IBOutlet weak var first: UITextField!
+    @IBOutlet weak var last: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,8 +45,14 @@ class SignUp: UIViewController {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! GamesViewController
+                    vc.first = (self.first.text)!
+                    print((self.first.text)!)
+                    vc.last = (self.last.text)!
+                  vc.shouldIDoIt = 1
+                    print((self.last.text)!)
+
+                    self.present(vc, animated: true, completion: nil)
                     
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -63,7 +70,6 @@ class SignUp: UIViewController {
    @IBAction func goToLogIn(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
          self.present(vc!, animated: true, completion: nil)
-        
     }
     
     }

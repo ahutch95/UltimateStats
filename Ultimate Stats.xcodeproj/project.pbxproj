@@ -14,6 +14,7 @@
 		49223B6B1ED365CA00A92878 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B691ED365CA00A92878 /* Login.swift */; };
 		49223B6C1ED365CA00A92878 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223B691ED365CA00A92878 /* Login.swift */; };
 		7ADDA7841ED3C06C0054A1F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */; };
+		7AEAFF151EDE7FC600785EF2 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEAFF141EDE7FC600785EF2 /* cell.swift */; };
 		9D2AFDC71ED3D5B5003A84B0 /* PlayerSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2AFDC61ED3D5B5003A84B0 /* PlayerSelectTableViewController.swift */; };
 		9D2AFDC91ED3D785003A84B0 /* AddTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2AFDC81ED3D785003A84B0 /* AddTeamTableViewController.swift */; };
 		9D2AFDCB1ED3DE3F003A84B0 /* RosterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2AFDCA1ED3DE3F003A84B0 /* RosterTableViewController.swift */; };
@@ -50,6 +51,7 @@
 		49223B651ED3562900A92878 /* sign-up.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "sign-up.swift"; sourceTree = "<group>"; };
 		49223B691ED365CA00A92878 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7AEAFF141EDE7FC600785EF2 /* cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 		82D2F073F71BFDE4D0FB1BB3 /* Pods-Ultimate Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate Stats/Pods-Ultimate Stats.release.xcconfig"; sourceTree = "<group>"; };
 		9D2AFDC61ED3D5B5003A84B0 /* PlayerSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSelectTableViewController.swift; sourceTree = "<group>"; };
 		9D2AFDC81ED3D785003A84B0 /* AddTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamTableViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				9D50148E1ECA5F6800361E01 /* AppDelegate.swift */,
 				9D5014921ECA5F6800361E01 /* Main.storyboard */,
+				7AEAFF141EDE7FC600785EF2 /* cell.swift */,
 				9D5014951ECA5F6800361E01 /* Assets.xcassets */,
 				9D5014971ECA5F6800361E01 /* LaunchScreen.storyboard */,
 				7ADDA7831ED3C06C0054A1F8 /* GoogleService-Info.plist */,
@@ -366,6 +369,7 @@
 				9D2AFDCB1ED3DE3F003A84B0 /* RosterTableViewController.swift in Sources */,
 				9D5014911ECA5F6800361E01 /* TeamsViewController.swift in Sources */,
 				9DF924711ED38B6F00293B8E /* PlayerStatsViewController.swift in Sources */,
+				7AEAFF151EDE7FC600785EF2 /* cell.swift in Sources */,
 				9D2AFDC71ED3D5B5003A84B0 /* PlayerSelectTableViewController.swift in Sources */,
 				9D50148F1ECA5F6800361E01 /* AppDelegate.swift in Sources */,
 				9D2AFDC91ED3D785003A84B0 /* AddTeamTableViewController.swift in Sources */,
