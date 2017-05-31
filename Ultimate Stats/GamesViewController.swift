@@ -11,13 +11,14 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class GamesViewController: UITabBarController {
+class GamesViewController: UIViewController  {
     
     var ref:FIRDatabaseReference!
     var first = ""
     var last = ""
     var shouldIDoIt = 0
   
+  @IBOutlet weak var tableView: UITableView!
   var users : [String] = []
   
     override func viewDidLoad() {

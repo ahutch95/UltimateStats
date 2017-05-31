@@ -53,6 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="I6X-UY-afF" eventType="touchUpInside" id="pdI-Vl-Ry9"/>
+                                    <segue destination="ljx-FU-UDS" kind="showDetail" id="LdO-LN-mPY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-ij-9c3">
@@ -797,6 +798,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="rKp-iH-oRW" id="Hfd-to-LTg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3a-pr-ILd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -951,4 +955,7 @@
         <image name="Stats" width="40" height="32"/>
         <image name="Teams" width="40" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LdO-LN-mPY"/>
+    </inferredMetricsTieBreakers>
 </document>
