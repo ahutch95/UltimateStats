@@ -14,7 +14,7 @@ import FirebaseDatabase
 class RosterTableViewController: UITableViewController {
     
     var currentRoster = [""]
-    var availablePlayers = ["player4", "player5"]
+    var availablePlayers = [""]
     
     var toAdd = [] as [String]
     var toRemove = [] as [String]
@@ -32,15 +32,10 @@ class RosterTableViewController: UITableViewController {
                 var value = (snapshot.value as? NSDictionary)!
               
                 for (key, values) in value {
-                    print(key)
-                    print(values)
-                   let fuck = values
-                    
-                    print(key)
                    
                     ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
                         var name = (snapshot.value as? String)!
-                        self.currentRoster.append(name)
+                        self.availablePlayers.append(name)
                         print(name)
                          self.tableView.reloadData()
                     }) { (error) in
