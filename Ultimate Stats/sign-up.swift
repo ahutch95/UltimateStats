@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignUp: UIViewController {
+class SignUp: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
@@ -21,7 +21,10 @@ class SignUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      self.username.delegate = self
+      self.password.delegate = self
+      self.last.delegate = self
+      self.first.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -29,7 +32,12 @@ class SignUp: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+  
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      self.view.endEditing(true)
+      return false
+    }
+  
     @IBAction func createAccountAction(_ sender: AnyObject) {
         
         if username.text == "" {
