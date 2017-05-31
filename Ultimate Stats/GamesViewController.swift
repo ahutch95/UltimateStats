@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class GamesViewController: UIViewController  {
+class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var ref:FIRDatabaseReference!
     var first = ""
@@ -23,6 +23,8 @@ class GamesViewController: UIViewController  {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      
       
       if (shouldIDoIt == 1) {
         createNewUserInDatabase()

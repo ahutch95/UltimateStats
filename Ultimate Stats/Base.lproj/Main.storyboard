@@ -53,7 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="I6X-UY-afF" eventType="touchUpInside" id="pdI-Vl-Ry9"/>
-                                    <segue destination="ljx-FU-UDS" kind="showDetail" id="LdO-LN-mPY"/>
+                                    <segue destination="bKB-yk-1a7" kind="show" id="ttR-ZI-aVI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-ij-9c3">
@@ -310,10 +310,10 @@
             </objects>
             <point key="canvasLocation" x="5490" y="89"/>
         </scene>
-        <!--Games View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="SPT-2a-cNM">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" customClass="GamesViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" customClass="GameViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UA5-z4-niJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -955,7 +955,4 @@
         <image name="Stats" width="40" height="32"/>
         <image name="Teams" width="40" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="LdO-LN-mPY"/>
-    </inferredMetricsTieBreakers>
 </document>

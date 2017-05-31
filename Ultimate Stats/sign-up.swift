@@ -45,7 +45,7 @@ class SignUp: UIViewController {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! GamesViewController
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Game") as! GamesViewController
                     vc.first = (self.first.text)!
                     print((self.first.text)!)
                     vc.last = (self.last.text)!

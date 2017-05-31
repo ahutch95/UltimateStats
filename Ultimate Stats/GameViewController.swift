@@ -8,10 +8,12 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        let gamesVC = (self.viewControllers![0] as! UINavigationController).topViewController as! GamesViewController
 
         // Do any additional setup after loading the view.
     }
