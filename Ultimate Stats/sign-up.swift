@@ -64,7 +64,7 @@ class SignUp: UIViewController, UITextFieldDelegate{
 
                     //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                    // self.present(vcs, animated: true, completion: nil)
-                    
+                    self.performSegue(withIdentifier: "goHome", sender: self)
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     

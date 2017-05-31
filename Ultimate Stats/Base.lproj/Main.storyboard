@@ -53,7 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="I6X-UY-afF" eventType="touchUpInside" id="pdI-Vl-Ry9"/>
-                                    <segue destination="bKB-yk-1a7" kind="show" id="maM-qS-TEc"/>
+                                    <segue destination="bKB-yk-1a7" kind="showDetail" identifier="goHome" id="qxv-MV-9lo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-ij-9c3">
