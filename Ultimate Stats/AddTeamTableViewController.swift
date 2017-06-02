@@ -11,6 +11,7 @@ import UIKit
 class AddTeamTableViewController: UITableViewController {
     
     var newRoster = [[String:String]]()
+    
     var players:String = "Chess" {
         didSet {
             detailLabel.text? = players
@@ -49,7 +50,20 @@ class AddTeamTableViewController: UITableViewController {
   
     @IBAction func unwindToAddTeamTable(segue:UIStoryboardSegue) {
       //performSegue(withIdentifier: "toAddTeam", sender: self)
+        
+        let roster = newRoster
+            .flatMap { $0 }
+            .reduce([String:String]()) { (dict, tuple) in
+                var nextDict = dict
+                nextDict.updateValue(tuple.1, forKey: tuple.0)
+                return nextDict
+        }
+        
       print(newRoster)
+        for(key, value) in roster{
+            print(value)
+            print(nameTextField.text)
+        }
     } 
 
 
