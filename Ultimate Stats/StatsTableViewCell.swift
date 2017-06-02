@@ -36,6 +36,7 @@ class StatsTableViewCell: UITableViewCell {
     var label: UILabel!
     if sender == goalsStepper {
       label = goalsLabel
+        
     } else if sender == assistsStepper {
       label = assistsLabel
     } else if sender == turnsStepper {

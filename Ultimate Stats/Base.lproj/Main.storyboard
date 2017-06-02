@@ -595,7 +595,7 @@
                     <navigationItem key="navigationItem" title="Title" id="GWC-XY-Kl7">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="SCe-9W-bqf">
                             <connections>
-                                <action selector="updateStats:" destination="73P-aS-Fcs" id="c5V-7X-aYh"/>
+                                <action selector="done:" destination="73P-aS-Fcs" id="b0s-ez-DEO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

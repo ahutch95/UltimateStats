@@ -13,9 +13,11 @@ import FirebaseDatabase
 
 
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  
+    
+   var ref:FIRDatabaseReference!
+    
   @IBOutlet var tableView: UITableView!
-    var playerMap: [[String: [Int]]] = []
+    var playerMap: [[String:[String: [Int]]]] = []
 
     var players: [String] = []
   
@@ -29,6 +31,47 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableView.delegate = self
     tableView.dataSource = self
   }
+    @IBAction func done(_ sender: Any) {
+       
+//        let cells = self.tableView.visibleCells as! Array<StatsTableViewCell>
+//        
+//        for cell in cells {
+//            cell.play
+//            
+//        }
+//        
+        
+        
+        
+        
+        
+        
+        
+       
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                for (key, values) in value {
+                    
+                    ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
+                        var name = (snapshot.value as? String)!
+                     //   self.availablePlayers.append(name)
+                        print(name)
+                        self.tableView.reloadData()
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -46,24 +89,28 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "StatsCell", for: indexPath) as! StatsTableViewCell
-    cell.playerLabel.text = players[indexPath.row]
-    var nameOfUser = players[indexPath.row]
-    var values = [Int]()
-    values = playerMap[indexPath.row][nameOfUser]!
+    
+    let fullPlayerMap = playerMap[indexPath.row].values
+    let playerNameMap = fullPlayerMap.first
+    let playerName = playerNameMap?.keys.first
+    let values = playerNameMap?.first?.value as! NSArray
+    
+    
+    cell.playerLabel.text = playerName
     cell.goalsStepper.maximumValue = 10000
     cell.assistsStepper.maximumValue = 10000
     cell.dsStepper.maximumValue = 10000
     cell.turnsStepper.maximumValue = 10000
     
-    cell.goalsLabel.text = String(values[0])
-    cell.assistsLabel.text = String(values[1])
-    cell.dsLabel.text = String(values[2])
-    cell.turnsLabel.text = String(values[3])
+    cell.goalsLabel.text = String(describing: values[0])
+    cell.assistsLabel.text = String(describing: values[1])
+    cell.dsLabel.text = String(describing: values[2])
+    cell.turnsLabel.text = String(describing: values[3])
     
-    cell.goalsStepper.value = Double(values[0])
-    cell.assistsStepper.value = Double(values[1])
-    cell.dsStepper.value = Double(values[2])
-    cell.turnsStepper.value = Double(values[3])
+    cell.goalsStepper.value = Double(values[0] as! Int)
+    cell.assistsStepper.value = Double(values[1] as! Int)
+    cell.dsStepper.value = Double(values[2] as! Int)
+    cell.turnsStepper.value = Double(values[3] as! Int)
     
 
     
@@ -71,6 +118,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
     @IBAction func updateStats(_ sender: Any) {
+        
         // update stats in firebase and pop vc
         // for each cell in the table
         // get each cell as a statstableviewcell

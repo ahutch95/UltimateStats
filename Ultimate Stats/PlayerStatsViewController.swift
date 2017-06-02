@@ -14,7 +14,7 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     //need to pull players + stats from firebase
-    var playerMap: [[String: [Int]]] = []
+    var playerMap: [[String:[String: [Int]]]] = []
     
     override func viewDidLoad() {
         
@@ -55,8 +55,9 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
                         }
                         player = [:]
                         player[name] = [goals,assists,defends,turns]
-                        self.playerMap.append(player)
-                        
+                        var temp: [String:[String: [Int]]] = [key as! String:[name : player[name]!]]
+
+                        self.playerMap.append(temp)
                         self.tableView.reloadData()
                     }) { (error) in
                         print(error.localizedDescription)
@@ -97,13 +98,17 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as! PlayerCellView
-        let player = playerMap[indexPath.row]
-        cell.player.text = player.keys.first!
-        let scores = player.values.first!
-        cell.goals.text = String(scores[0])
-        cell.assists.text = String(scores[1])
-        cell.defends.text = String(scores[2])
-        cell.turns.text = String(scores[3])
+        let fullPlayerMap = playerMap[indexPath.row].values
+        let playerNameMap = fullPlayerMap.first
+        let playerName = playerNameMap?.keys.first
+        let values = playerNameMap?.first?.value as! NSArray
+        //print(values as! NSArray)
+        cell.player.text = playerName
+//        print(String(describing: values?[0]))
+        cell.goals.text = String(describing: values[0] )
+        cell.assists.text = String(describing: values[1])
+        cell.defends.text = String(describing: values[2])
+        cell.turns.text = String(describing: values[3])
         return cell
         
         
