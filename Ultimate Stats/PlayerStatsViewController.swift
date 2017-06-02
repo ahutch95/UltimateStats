@@ -7,23 +7,82 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
+    
+    
+    
+    
+    
     //need to pull players + stats from firebase
-    let playerMap: [[String: [Int]]] = [["player1" : [0,0,0,0]], ["player2" : [10,50,100,20]]]
+    var playerMap: [[String: [Int]]] = [["player1" : [0,0,0,0]], ["player2" : [10,50,100,20]]]
     
     override func viewDidLoad() {
+        
+        
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                var player = [String: [Int]]()
+                var name = ""
+                var goals = 0
+                var turns = 0
+                var defends = 0
+                var assists = 0
+                for (key, values) in value {
+                    
+                    ref.child("users").child(key as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                        let value = (snapshot.value as? NSDictionary)!
+                        
+                        for (key, values) in value {
+                            print(key)
+                            print(values)
+                            if(key as! String == "goals"){
+                                goals = values as! Int
+                            }else if(key as! String == "assists"){
+                                assists = values as! Int
+                            }else if(key as! String == "turns"){
+                                turns = values as! Int
+                            }else if(key as! String == "defends"){
+                                defends = values as! Int
+                            }else if(key as! String == "firstName"){
+                                name = values as! String
+                            }
+                        }
+                        player[name] = [goals,turns,defends,assists]
+                        self.playerMap.append(player)
+                        
+                        self.tableView.reloadData()
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                    
+                    
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
         
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,7 +113,7 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddStats" {
@@ -66,5 +125,5 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
             destination.players = keys
         }
     }
-
+    
 }
