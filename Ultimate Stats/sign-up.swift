@@ -15,10 +15,15 @@ class SignUp: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
+<<<<<<< HEAD
     
     @IBOutlet weak var last: UITextField!
     @IBOutlet weak var first: UITextField!
     
+=======
+    @IBOutlet weak var first: UITextField!
+    @IBOutlet weak var last: UITextField!
+>>>>>>> shit
     override func viewDidLoad() {
         super.viewDidLoad()
       self.username.delegate = self
@@ -57,7 +62,18 @@ class SignUp: UIViewController, UITextFieldDelegate{
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
+<<<<<<< HEAD
                 
+=======
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Game") as! GamesViewController
+                    vc.first = (self.first.text)!
+                    print((self.first.text)!)
+                    vc.last = (self.last.text)!
+                  vc.shouldIDoIt = 1
+                    print((self.last.text)!)
+
+                    self.present(vc, animated: true, completion: nil)
+>>>>>>> shit
                     
                     
                     //self.performSegue(withIdentifier: "goHome", sender: self)
@@ -89,7 +105,6 @@ class SignUp: UIViewController, UITextFieldDelegate{
    @IBAction func goToLogIn(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
          self.present(vc!, animated: true, completion: nil)
-        
     }
     
     }
