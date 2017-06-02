@@ -9,23 +9,6 @@
 import UIKit
 
 class iQuizTableViewCell: UITableViewCell {
-<<<<<<< HEAD
-    
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var iconView: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
-=======
   
   @IBOutlet weak var questionLabel: UILabel!
   @IBOutlet weak var descLabel: UILabel!
@@ -41,5 +24,4 @@ class iQuizTableViewCell: UITableViewCell {
     
   }
   
->>>>>>> shit
 }

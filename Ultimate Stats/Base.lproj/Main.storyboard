@@ -53,11 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="I6X-UY-afF" eventType="touchUpInside" id="pdI-Vl-Ry9"/>
-<<<<<<< HEAD
-                                    <segue destination="bKB-yk-1a7" kind="showDetail" identifier="goHome" id="qxv-MV-9lo"/>
-=======
                                     <segue destination="bKB-yk-1a7" kind="show" id="ttR-ZI-aVI"/>
->>>>>>> shit
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-ij-9c3">
@@ -116,13 +112,8 @@
                         <color key="backgroundColor" red="0.18580469196652682" green="0.67626302432910446" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="first" destination="Icn-l5-U1f" id="MOc-23-HA7"/>
-                        <outlet property="last" destination="agS-o4-s1j" id="9NX-lp-UVV"/>
-=======
                         <outlet property="first" destination="Icn-l5-U1f" id="YKg-El-T8n"/>
                         <outlet property="last" destination="agS-o4-s1j" id="RU4-LV-NJJ"/>
->>>>>>> shit
                         <outlet property="password" destination="lcH-86-yad" id="MuP-gc-k9X"/>
                         <outlet property="username" destination="8Ry-kC-vLR" id="Cs6-7D-mEm"/>
                     </connections>
@@ -319,17 +310,10 @@
             </objects>
             <point key="canvasLocation" x="5490" y="89"/>
         </scene>
-<<<<<<< HEAD
-        <!--Home View Controller-->
-        <scene sceneID="SPT-2a-cNM">
-            <objects>
-                <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" customClass="HomeViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
-=======
         <!--Game View Controller-->
         <scene sceneID="SPT-2a-cNM">
             <objects>
                 <tabBarController storyboardIdentifier="Home" id="bKB-yk-1a7" customClass="GameViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> shit
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UA5-z4-niJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -815,11 +799,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="tableView" destination="rKp-iH-oRW" id="OZK-Hg-NN0"/>
-=======
                         <outlet property="tableView" destination="rKp-iH-oRW" id="Hfd-to-LTg"/>
->>>>>>> shit
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3a-pr-ILd" userLabel="First Responder" sceneMemberID="firstResponder"/>

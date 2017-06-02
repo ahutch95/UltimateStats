@@ -11,25 +11,15 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignUp: UIViewController, UITextFieldDelegate{
+class SignUp: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
-<<<<<<< HEAD
-    
-    @IBOutlet weak var last: UITextField!
-    @IBOutlet weak var first: UITextField!
-    
-=======
     @IBOutlet weak var first: UITextField!
     @IBOutlet weak var last: UITextField!
->>>>>>> shit
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.username.delegate = self
-      self.password.delegate = self
-      self.last.delegate = self
-      self.first.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -37,12 +27,7 @@ class SignUp: UIViewController, UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      self.view.endEditing(true)
-      return false
-    }
-  
+    
     @IBAction func createAccountAction(_ sender: AnyObject) {
         
         if username.text == "" {
@@ -54,17 +39,12 @@ class SignUp: UIViewController, UITextFieldDelegate{
             present(alertController, animated: true, completion: nil)
             
         } else {
-           
-            
             FIRAuth.auth()?.createUser(withEmail: username.text!, password: password.text!) { (user, error) in
                 
                 if error == nil {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-<<<<<<< HEAD
-                
-=======
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Game") as! GamesViewController
                     vc.first = (self.first.text)!
                     print((self.first.text)!)
@@ -73,14 +53,7 @@ class SignUp: UIViewController, UITextFieldDelegate{
                     print((self.last.text)!)
 
                     self.present(vc, animated: true, completion: nil)
->>>>>>> shit
                     
-                    
-                    //self.performSegue(withIdentifier: "goHome", sender: self)
-
-                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                   // self.present(vcs, animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "goHome", sender: self)
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
@@ -92,14 +65,6 @@ class SignUp: UIViewController, UITextFieldDelegate{
             }
         }
         
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let controller = segue.destination as! HomeViewController
-        controller.first = first.text!
-        controller.last = last.text!
-        
-       
     }
     
    @IBAction func goToLogIn(){

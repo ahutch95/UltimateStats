@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class Login: UIViewController, UITextFieldDelegate {
+class Login: UIViewController {
     
     @IBOutlet weak var username: UITextField!
    
@@ -18,9 +18,7 @@ class Login: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.username.delegate = self
-
-        self.password.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -68,12 +66,7 @@ class Login: UIViewController, UITextFieldDelegate {
             }
         }
     }
-  
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    self.view.endEditing(true)
-    return false
-  }
-  
+    
     @IBAction func goToSignUp(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUp")
         self.present(vc!, animated: true, completion: nil)
