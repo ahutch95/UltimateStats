@@ -10,7 +10,7 @@ import UIKit
 
 class AddTeamTableViewController: UITableViewController {
     
-    var newRoster = [""]
+    var newRoster = [[String:String]]()
     var players:String = "Chess" {
         didSet {
             detailLabel.text? = players
