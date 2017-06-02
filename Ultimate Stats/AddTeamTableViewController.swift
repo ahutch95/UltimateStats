@@ -10,7 +10,7 @@ import UIKit
 
 class AddTeamTableViewController: UITableViewController {
     
-    
+    var newRoster = [""]
     var players:String = "Chess" {
         didSet {
             detailLabel.text? = players
@@ -36,21 +36,21 @@ class AddTeamTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+      if segue.identifier == "SavePlayerDetail" {
+        print("test")
+      }
         if segue.identifier == "PickGame" {
             if let playerSelect = segue.destination as? PlayerSelectTableViewController {
                 playerSelect.selectedPlayers = players
             }
         }
     }
-    
-    //Unwind segue
-    @IBAction func unwindWithSelectedGame(_ segue:UIStoryboardSegue) {
-        if let gamePickerViewController = segue.source as? PlayerSelectTableViewController,
-            let selectedPlayers = gamePickerViewController.selectedPlayers {
-            players = selectedPlayers
-        }
-    }
+  
+  
+    @IBAction func unwindToAddTeamTable(segue:UIStoryboardSegue) {
+      //performSegue(withIdentifier: "toAddTeam", sender: self)
+      print(newRoster)
+    } 
 
 
 }

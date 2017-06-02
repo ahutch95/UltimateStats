@@ -299,14 +299,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Roster" id="uZQ-28-HUV">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="UwM-QU-Xhs">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="xIl-oS-kZf" userLabel="Done">
                             <connections>
-                                <action selector="finalizeRoster:" destination="KRk-zE-UQq" id="OHF-dx-Slt"/>
+                                <action selector="finalizeRoster:" destination="KRk-zE-UQq" id="CXC-S1-EAQ"/>
+                                <segue destination="6Bb-JJ-Imv" kind="unwind" unwindAction="unwindToAddTeamTableWithSegue:" id="g9H-gS-bEj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="UwM-QU-Xhs">
+                            <connections>
+                                <action selector="finalizeRoster:" destination="KRk-zE-UQq" id="DKs-iD-ucr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUP-oF-kbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Bb-JJ-Imv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5490" y="89"/>
         </scene>

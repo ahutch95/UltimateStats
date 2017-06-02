@@ -184,10 +184,28 @@ class RosterTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+   
     */
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      for player in toAdd {
+        currentRoster.append(player)
+        availablePlayers.remove(at: availablePlayers.index(of: player)!)
+      }
+      currentRoster.sort()
+      toAdd = []
+      for player in toRemove {
+        currentRoster.remove(at: currentRoster.index(of: player)!)
+        availablePlayers.append(player)
+      }
+      availablePlayers.sort()
+      toRemove = []
+      tableView.reloadData()
+        if let toViewController = segue.destination as? AddTeamTableViewController {
+          toViewController.newRoster = currentRoster
+        }
+      
+    }
+
 
 }
