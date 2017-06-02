@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet var tableView: UITableView!
-    
+    var playerMap: [[String: [Int]]] = []
+
     var players: [String] = []
   
   // should get all players from firebase
@@ -19,7 +24,6 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     // Do any additional setup after loading the view.
     // Test comment
     tableView.delegate = self
@@ -36,12 +40,33 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("COUNT:" + String(players.count))
     return players.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "StatsCell", for: indexPath) as! StatsTableViewCell
     cell.playerLabel.text = players[indexPath.row]
+    var nameOfUser = players[indexPath.row]
+    var values = [Int]()
+    values = playerMap[indexPath.row][nameOfUser]!
+    cell.goalsStepper.maximumValue = 10000
+    cell.assistsStepper.maximumValue = 10000
+    cell.dsStepper.maximumValue = 10000
+    cell.turnsStepper.maximumValue = 10000
+    
+    cell.goalsLabel.text = String(values[0])
+    cell.assistsLabel.text = String(values[1])
+    cell.dsLabel.text = String(values[2])
+    cell.turnsLabel.text = String(values[3])
+    
+    cell.goalsStepper.value = Double(values[0])
+    cell.assistsStepper.value = Double(values[1])
+    cell.dsStepper.value = Double(values[2])
+    cell.turnsStepper.value = Double(values[3])
+    
+
+    
     return cell
   }
   

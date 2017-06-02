@@ -13,12 +13,8 @@ import FirebaseDatabase
 class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
-    
-    
-    
     //need to pull players + stats from firebase
-    var playerMap: [[String: [Int]]] = [["player1" : [0,0,0,0]], ["player2" : [10,50,100,20]]]
+    var playerMap: [[String: [Int]]] = []
     
     override func viewDidLoad() {
         
@@ -57,7 +53,8 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
                                 name = values as! String
                             }
                         }
-                        player[name] = [goals,turns,defends,assists]
+                        player = [:]
+                        player[name] = [goals,assists,defends,turns]
                         self.playerMap.append(player)
                         
                         self.tableView.reloadData()
@@ -123,6 +120,8 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
                 keys.append(contentsOf: Array((player.keys)))
             }
             destination.players = keys
+            destination.playerMap = playerMap
+            
         }
     }
     
