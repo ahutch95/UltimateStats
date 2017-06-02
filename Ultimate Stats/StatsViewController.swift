@@ -14,8 +14,7 @@ import FirebaseDatabase
 
 class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   var ref:FIRDatabaseReference!
-    
+   
   @IBOutlet var tableView: UITableView!
     var playerMap: [[String:[String: [Int]]]] = []
 
@@ -33,43 +32,35 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
     @IBAction func done(_ sender: Any) {
        
-//        let cells = self.tableView.visibleCells as! Array<StatsTableViewCell>
-//        
-//        for cell in cells {
-//            cell.play
-//            
-//        }
-//        
+        let cells = self.tableView.visibleCells as! Array<StatsTableViewCell>
+        var userID = ""
+        var ds = 0
+        var assist = 0
+        var goal = 0
+        var turn = 0
+        
+        for cell in cells {
+            ds = (cell.dsLabel.text! as NSString).integerValue
+            assist = (cell.assistsLabel.text! as NSString).integerValue
+            goal = (cell.goalsLabel.text!as NSString).integerValue
+            turn = (cell.turnsLabel.text!as NSString).integerValue
+            userID = cell.id
+            
+            let ref = FIRDatabase.database().reference()
         
         
-        
-        
-        
-        
-        
-       
-        let ref = FIRDatabase.database().reference()
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        
-        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-            var newItems: [String] = []
-            if !(snapshot.value is NSNull){
-                var value = (snapshot.value as? NSDictionary)!
-                
-                for (key, values) in value {
-                    
-                    ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
-                        var name = (snapshot.value as? String)!
-                     //   self.availablePlayers.append(name)
-                        print(name)
-                        self.tableView.reloadData()
-                    }) { (error) in
-                        print(error.localizedDescription)
-                    }
+            ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                if !(snapshot.value is NSNull){
+                    ref.child("users").child(userID).child("goals").setValue(goal)
+                    ref.child("users").child(userID).child("assists").setValue(assist)
+                    ref.child("users").child(userID).child("turns").setValue(turn)
+                    ref.child("users").child(userID).child("defends").setValue(ds)
                 }
+            }) { (error) in
+                print(error.localizedDescription)
             }
-        }) { (error) in
-            print(error.localizedDescription)
+           
+            
         }
     }
   
@@ -111,8 +102,8 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     cell.assistsStepper.value = Double(values[1] as! Int)
     cell.dsStepper.value = Double(values[2] as! Int)
     cell.turnsStepper.value = Double(values[3] as! Int)
+    cell.id = String(describing: playerMap[indexPath.row].keys.first as! NSString)
     
-
     
     return cell
   }

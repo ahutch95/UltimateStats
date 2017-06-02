@@ -19,7 +19,8 @@ class StatsTableViewCell: UITableViewCell {
   @IBOutlet var turnsStepper: UIStepper!
   @IBOutlet var dsLabel: UILabel!
   @IBOutlet var dsStepper: UIStepper!
-  
+  var id = ""
+    
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
