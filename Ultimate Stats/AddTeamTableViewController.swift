@@ -70,9 +70,6 @@ class AddTeamTableViewController: UITableViewController {
         for(key, value) in roster{
            upload(key: key as! String,value: value as! String)
         }
-
-    
-        
     }
     
     func upload(key: String, value: String){

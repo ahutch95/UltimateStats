@@ -271,11 +271,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Team" id="yz6-X6-ic1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dDn-mK-B7f">
-                            <connections>
-                                <action selector="done:" destination="dmQ-Yv-Qon" id="6b1-Ev-r4b"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dDn-mK-B7f"/>
                     </navigationItem>
                     <connections>
                         <outlet property="detailLabel" destination="Ohi-oU-B0T" id="c2k-1W-ARS"/>
