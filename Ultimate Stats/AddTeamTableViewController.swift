@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class AddTeamTableViewController: UITableViewController {
     
@@ -51,6 +54,10 @@ class AddTeamTableViewController: UITableViewController {
     @IBAction func unwindToAddTeamTable(segue:UIStoryboardSegue) {
       //performSegue(withIdentifier: "toAddTeam", sender: self)
         
+           }
+
+    @IBAction func done(_ sender: Any) {
+        
         let roster = newRoster
             .flatMap { $0 }
             .reduce([String:String]()) { (dict, tuple) in
@@ -59,12 +66,33 @@ class AddTeamTableViewController: UITableViewController {
                 return nextDict
         }
         
-      print(newRoster)
+        
         for(key, value) in roster{
-            print(value)
-            print(nameTextField.text)
+           upload(key: key as! String,value: value as! String)
         }
-    } 
 
+    
+        
+    }
+    
+    func upload(key: String, value: String){
+        
+        let ref = FIRDatabase.database().reference()
+
+        
+        
+        ref.child("users").child(key).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
+            if !(snapshot.value is NSNull){
+            var value = (snapshot.value as? NSArray)!
+                
+                
+                ref.child("users").child(key).child("teams").setValue(value.adding(self.nameTextField.text) )
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+       
+    }
 
 }
