@@ -17,7 +17,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var first = ""
     var last = ""
     var shouldIDoIt = 0
-  
+    var games = [String]()
+    
   @IBOutlet weak var tableView: UITableView!
   var users : [String] = []
   
@@ -29,13 +30,34 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
       if (shouldIDoIt == 1) {
         createNewUserInDatabase()
       }
+        
+        let ref = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
-        ref = FIRDatabase.database().reference()
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            let username = value?["name"] as? String ?? ""
-            
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                for (key, values) in value {
+                    
+                    ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
+                        var game = (snapshot.value as? NSArray)!
+                        
+                        
+                        for each in game{
+                            print(each as! String)
+                            if(!self.games.contains(each as! String)){
+                                self.games.append(each as! String)
+                            }
+                        }
+                        
+                        
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                }
+            }
             
         }) { (error) in
             print(error.localizedDescription)
