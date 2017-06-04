@@ -21,7 +21,9 @@ class AddGameViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     var teams = [String]()
     
-    
+    var teamBeingSelected: String?
+    var homeTeam: String?
+    var awayTeam: String?
     
     @IBAction func upload(_ sender: Any) {
         let userID = FIRAuth.auth()?.currentUser?.uid
@@ -73,5 +75,26 @@ class AddGameViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "teamPicker" {
+            let button = sender as! UIButton
+            if button.currentTitle == "Home" {
+                teamBeingSelected = "home"
+            } else {
+                teamBeingSelected = "away"
+            }
+            let destination = segue.destination as! TeamPickerViewController
+            destination.teams = teams
+        }
+    }
+    
+    @IBAction func unwindFromTeamPicker(segue: UIStoryboardSegue) {
+        let source = segue.source as! TeamPickerViewController
+        if teamBeingSelected == "home" {
+            homeTeam = source.selectedTeam
+        } else {
+            awayTeam = source.selectedTeam
+        }
+    }
     
 }

@@ -42,7 +42,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for (key, values) in value {
                     
                     ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
-                        var game = (snapshot.value as? NSArray)!
+                        /*var game = (snapshot.value as? NSArray)!
                         
                         
                         for each in game{
@@ -50,7 +50,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             if(!self.games.contains(each as! String)){
                                 self.games.append(each as! String)
                             }
-                        }
+                        }*/
                         
                         
                     }) { (error) in
