@@ -48,28 +48,31 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for (key, values) in value {
                     
                     ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
-                        /*var game = (snapshot.value as? NSArray)!
+                        var game = (snapshot.value as? NSArray)!
                         
                         
                         for each in game{
                             print(each as! String)
-                            if(!self.games.contains(each as! String)){
-                                self.games.append(each as! String)
-                            }
-                        }*/
+                           self.users.append(each as! String)
+                            
+                        }
+                        self.tableView.delegate = self
+                        self.tableView.dataSource = self
+                        self.tableView.reloadData()
                         
                         
                     }) { (error) in
                         print(error.localizedDescription)
                     }
+                    
                 }
+                
             }
             
         }) { (error) in
             print(error.localizedDescription)
         }
-
-    }
+           }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,7 +108,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                           "assists": 0,
                           "turns": 0,
                           "defends": 0,
-                          "teams": ["none"]] as [String : Any]
+                          "teams": ["none"],
+                          "games": ["none"]] as [String : Any]
               userExsists = true
               
                 self.ref.child("users").child(userID!).setValue(user)
