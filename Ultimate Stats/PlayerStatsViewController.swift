@@ -16,6 +16,8 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     //need to pull players + stats from firebase
     var playerMap: [[String:[String: [Int]]]] = []
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         
         
@@ -73,6 +75,9 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
         
         super.viewDidLoad()
         
+        tableView.refreshControl = refreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -84,6 +89,11 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refresh() {
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
     
     @IBOutlet weak var tableView: UITableView!

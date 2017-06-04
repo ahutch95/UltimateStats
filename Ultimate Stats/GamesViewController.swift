@@ -19,11 +19,17 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var shouldIDoIt = 0
     var games = [String]()
     
+    let refreshControl = UIRefreshControl()
+    
   @IBOutlet weak var tableView: UITableView!
   var users : [String] = []
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // pull to refresh
+        tableView.refreshControl = refreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
       
       
       
@@ -109,6 +115,11 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(error.localizedDescription)
       }
     
+    }
+    
+    func refresh() {
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

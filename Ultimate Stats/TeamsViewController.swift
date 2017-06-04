@@ -9,11 +9,17 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var ref:FIRDatabaseReference!
     var users: [String] = []
     
+    let refreshControl = UIRefreshControl()
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // pull to refresh
+        tableView.refreshControl = refreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         ref = FIRDatabase.database().reference()
         
@@ -45,6 +51,11 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
+    
+    func refresh() {
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
+    }
     
     //creates new user
     
