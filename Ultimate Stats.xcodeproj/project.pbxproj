@@ -35,6 +35,7 @@
 		9D5014991ECA5F6800361E01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5014971ECA5F6800361E01 /* LaunchScreen.storyboard */; };
 		9D5014A41ECA5F6800361E01 /* Ultimate_StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5014A31ECA5F6800361E01 /* Ultimate_StatsTests.swift */; };
 		9D5014AF1ECA5F6800361E01 /* Ultimate_StatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5014AE1ECA5F6800361E01 /* Ultimate_StatsUITests.swift */; };
+		9D6372041EE5D533001597AC /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6372031EE5D533001597AC /* TeamDetailViewController.swift */; };
 		9DF9246F1ED38B6100293B8E /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9246E1ED38B6100293B8E /* GamesViewController.swift */; };
 		E9CCDD7539BC08148115B50E /* Pods_Ultimate_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE2F725680514600DF7824F /* Pods_Ultimate_Stats.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		9D5014AA1ECA5F6800361E01 /* Ultimate StatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ultimate StatsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5014AE1ECA5F6800361E01 /* Ultimate_StatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_StatsUITests.swift; sourceTree = "<group>"; };
 		9D5014B01ECA5F6800361E01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D6372031EE5D533001597AC /* TeamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		9DF9246E1ED38B6100293B8E /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		A09F60DE35E4B17C3D743F22 /* Pods-Ultimate Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate Stats/Pods-Ultimate Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		EBE2F725680514600DF7824F /* Pods_Ultimate_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ultimate_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 				7AEAFF361EDE813A00785EF2 /* user.swift */,
 				5EE344C81EE3881800CF57E3 /* TeamPickerViewController.swift */,
 				499211781EE4887D00C077FF /* GameCellView.swift */,
+				9D6372031EE5D533001597AC /* TeamDetailViewController.swift */,
 			);
 			path = "Ultimate Stats";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				7AEAFF3F1EDE813A00785EF2 /* StatsViewController.swift in Sources */,
 				7AEAFF451EDE88F200785EF2 /* GameViewController.swift in Sources */,
 				9D50148F1ECA5F6800361E01 /* AppDelegate.swift in Sources */,
+				9D6372041EE5D533001597AC /* TeamDetailViewController.swift in Sources */,
 				7AEAFF3B1EDE813A00785EF2 /* PlayerSelectTableViewController.swift in Sources */,
 				7AEAFF391EDE813A00785EF2 /* Objects.swift in Sources */,
 				7AEAFF371EDE813A00785EF2 /* AddGameViewController.swift in Sources */,

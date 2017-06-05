@@ -25,16 +25,22 @@ class AddGameViewController: UIViewController {
     var homeTeam: String?
     var awayTeam: String?
     
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var awayButton: UIButton!
+    
+    var locationString = "Denny Field"
+    
     @IBAction func upload(_ sender: Any) {
         let userID = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
-        datePicker.timeZone = NSTimeZone(name: "US/Pacific") as! TimeZone
+        //datePicker.timeZone = NSTimeZone(name: "US/Pacific") as! TimeZone
         print(datePicker.date.description)
-        let game = ["home":homeTeam,"away":awayTeam, "time":datePicker.date.description] as [String : Any]
+        let game = ["home":homeTeam,"away":awayTeam, "time":datePicker.date.description(with: Locale.current)] as [String : Any]
+        // add location to firebase?
         
         ref.child("users").child(userID!).child("games").childByAutoId().setValue(game)
         
-        
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -74,6 +80,9 @@ class AddGameViewController: UIViewController {
             print(error.localizedDescription)
         }
         
+        datePicker.timeZone = NSTimeZone.local
+        location.text = locationString
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,15 +96,19 @@ class AddGameViewController: UIViewController {
             let destination = segue.destination as! TeamPickerViewController
             destination.teams = teams
         }
+        if segue.identifier == "locationPicker" {
+            print("segue")
+        }
     }
     
     @IBAction func unwindFromTeamPicker(segue: UIStoryboardSegue) {
         let source = segue.source as! TeamPickerViewController
         if teamBeingSelected == "home" {
             homeTeam = source.selectedTeam
+            homeButton.titleLabel!.text = homeTeam
         } else {
             awayTeam = source.selectedTeam
+            awayButton.titleLabel!.text = awayTeam
         }
     }
-    
 }

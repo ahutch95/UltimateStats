@@ -77,6 +77,13 @@ update()
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTeamDetail" {
+            let destination = segue.destination as! TeamDetailViewController
+            destination.team = "" // replace with selected team/firebase identifier
+        }
+    }
 }
 
 
