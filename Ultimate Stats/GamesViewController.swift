@@ -22,8 +22,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
-    var users : [String] = []
     var test: [NSDictionary] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +37,25 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             createNewUserInDatabase()
         }
         
+        getData()
+        
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func getData(){
+        
         let ref = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             var newItems: [String] = []
+            
             if !(snapshot.value is NSNull){
                 var value = (snapshot.value as? NSDictionary)!
                 
@@ -59,50 +73,30 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                     
                                     self.test.append(g)
                                     print("here")
+                                    self.tableView.delegate = self
+                                    self.tableView.dataSource = self
+                                    self.tableView.reloadData()
                                 }) { (error) in
                                     print(error.localizedDescription)
                                 }
-                                
-                                self.tableView.delegate = self
-                                self.tableView.dataSource = self
-                                self.tableView.reloadData()
                                 
                             }
                             
                         }
                         
+                        
                     }) { (error) in
                         print(error.localizedDescription)
                     }
-                    self.tableView.delegate = self
-                    self.tableView.dataSource = self
-                    self.tableView.reloadData()
                     
                 }
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
-                self.tableView.reloadData()
-                
                 
             }
             
         }) { (error) in
             print(error.localizedDescription)
         }
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.reloadData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func getData(){
         
-        //var  rootData = Firebase(url: "https//ultimate-stats-tracker.firebaseio.com/")
-        //rootData.childbyAppendingPath("users/mchen/name")
         
     }
     
@@ -155,8 +149,6 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.away.text = groceryItem.value(forKey: "away") as! String
         cell.time.text = groceryItem.value(forKey: "time") as! String
         print(groceryItem.value(forKey: "time") as! String)
-        
-        
         
         
         return cell
