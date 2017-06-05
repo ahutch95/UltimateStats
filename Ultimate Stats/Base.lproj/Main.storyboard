@@ -493,7 +493,7 @@
             </objects>
             <point key="canvasLocation" x="3864.8000000000002" y="750.67466266866575"/>
         </scene>
-        <!--Title-->
+        <!--Update Statistics-->
         <scene sceneID="kYh-eU-fus">
             <objects>
                 <viewController id="73P-aS-Fcs" customClass="StatsViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
@@ -632,7 +632,7 @@
                             <constraint firstItem="H6Q-Se-fXa" firstAttribute="height" secondItem="E8G-5q-aaz" secondAttribute="height" id="u3s-mY-6av"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="GWC-XY-Kl7">
+                    <navigationItem key="navigationItem" title="Update Statistics" id="GWC-XY-Kl7">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="SCe-9W-bqf">
                             <connections>
                                 <action selector="done:" destination="73P-aS-Fcs" id="b0s-ez-DEO"/>

@@ -16,8 +16,8 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   @IBOutlet var tableView: UITableView!
-  var playerMap: [[String:[String: [Int]]]] = []
   
+  var playerMap: [[String:[String: [Int]]]] = []
   var players: [String] = []
   
   override func viewDidLoad() {
@@ -25,18 +25,15 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableView.delegate = self
     tableView.dataSource = self
   }
+  
   @IBAction func done(_ sender: Any) {
     let cells = self.tableView.visibleCells as! Array<StatsTableViewCell>
-    
     for cell in cells {
-      
-      
       upload(cell: cell)
-      
     }
   }
   
-  func upload(cell: StatsTableViewCell){
+  func upload(cell: StatsTableViewCell) {
     
     var userID = ""
     var ds = 0

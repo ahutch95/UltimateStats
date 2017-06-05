@@ -17,6 +17,28 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
   let refreshControl = UIRefreshControl()
   
   override func viewDidLoad() {
+    
+    super.viewDidLoad()
+
+    refresh()
+    tableView.refreshControl = refreshControl
+    tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    
+    tableView.delegate = self
+    tableView.dataSource = self
+    
+    
+    
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  func refresh() {
+    playerMap = []
     let ref = FIRDatabase.database().reference()
     let userID = FIRAuth.auth()?.currentUser?.uid
     
@@ -68,26 +90,6 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
       print(error.localizedDescription)
     }
     
-    
-    super.viewDidLoad()
-    
-    tableView.refreshControl = refreshControl
-    tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    
-    tableView.delegate = self
-    tableView.dataSource = self
-    
-    
-    
-    // Do any additional setup after loading the view.
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  func refresh() {
     tableView.reloadData()
     tableView.refreshControl?.endRefreshing()
   }
