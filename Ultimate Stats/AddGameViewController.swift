@@ -29,7 +29,7 @@ class AddGameViewController: UIViewController {
         let userID = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
         print(datePicker.date.description)
-        let game = ["home":homeTeam,"away":awayTeam, "date":datePicker.date.description,"location":location.text] as [String : Any]
+        let game = ["home":homeTeam,"away":awayTeam, "date":datePicker.date.description] as [String : Any]
         
         ref.child("users").child(userID!).child("games").childByAutoId().setValue(game)
         

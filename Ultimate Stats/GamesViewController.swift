@@ -23,7 +23,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
   @IBOutlet weak var tableView: UITableView!
   var users : [String] = []
-  
+    var test: [NSDictionary] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,17 +48,24 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for (key, values) in value {
                     
                     ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
-                        var game = (snapshot.value as? NSArray)!
+                        var game = (snapshot.value as? NSDictionary)!
                         
                         
-                        for each in game{
-                            print(each as! String)
-                           self.users.append(each as! String)
+                        for (keys, values) in game{
+                            
+                            ref.child("users").child(key as! String).child("games").child(keys as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                                var g = (snapshot.value as? NSDictionary)!
+                                
+                               self.test.append(g)
+                                print("here")
+                            }) { (error) in
+                                print(error.localizedDescription)
+                            }
+                            
+
                             
                         }
-                        self.tableView.delegate = self
-                        self.tableView.dataSource = self
-                        self.tableView.reloadData()
+                        
                         
                         
                     }) { (error) in
@@ -72,6 +79,9 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { (error) in
             print(error.localizedDescription)
         }
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.reloadData()
            }
     
     override func didReceiveMemoryWarning() {
@@ -127,11 +137,15 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! iQuizTableViewCell
-    let groceryItem = users[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GameCellView
+    let groceryItem = test[indexPath.row]
     print("cell # \(indexPath.row) selected")
     
-    cell.questionLabel.text = groceryItem
+//    cell.home.text = groceryItem.value(forKey: "home") as! String
+//    cell.away.text = groceryItem.value(forKey: "away") as! String
+//    cell.time.text = groceryItem.value(forKey: "time") as! String
+
+    
     
     
     return cell
@@ -142,7 +156,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return users.count
+    return test.count
   }
 
 }
