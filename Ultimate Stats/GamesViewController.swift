@@ -48,6 +48,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for (key, values) in value {
                     
                     ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
+                         if !(snapshot.value is NSNull){
                         var game = (snapshot.value as? NSDictionary)!
                         
                         
@@ -62,17 +63,26 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 print(error.localizedDescription)
                             }
                             
-
+                            self.tableView.delegate = self
+                            self.tableView.dataSource = self
+                            self.tableView.reloadData()
                             
                         }
                         
-                        
+                        }
                         
                     }) { (error) in
                         print(error.localizedDescription)
                     }
-                    
+                    self.tableView.delegate = self
+                    self.tableView.dataSource = self
+                    self.tableView.reloadData()
+
                 }
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+
                 
             }
             
@@ -141,9 +151,10 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let groceryItem = test[indexPath.row]
     print("cell # \(indexPath.row) selected")
     
-//    cell.home.text = groceryItem.value(forKey: "home") as! String
-//    cell.away.text = groceryItem.value(forKey: "away") as! String
-//    cell.time.text = groceryItem.value(forKey: "time") as! String
+    cell.home.text = groceryItem.value(forKey: "home") as! String
+    cell.away.text = groceryItem.value(forKey: "away") as! String
+    cell.time.text = groceryItem.value(forKey: "time") as! String
+    print(groceryItem.value(forKey: "time") as! String)
 
     
     
