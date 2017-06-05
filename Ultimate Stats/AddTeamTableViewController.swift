@@ -24,6 +24,8 @@ class AddTeamTableViewController: UITableViewController {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var detailLabel: UILabel!
   
+  
+    
   required init?(coder aDecoder: NSCoder) {
     print("init PlayerDetailsViewController")
     super.init(coder: aDecoder)
