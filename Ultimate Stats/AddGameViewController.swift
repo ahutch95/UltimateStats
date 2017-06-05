@@ -27,6 +27,8 @@ class AddGameViewController: UIViewController {
     
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var awayButton: UIButton!
+    @IBOutlet weak var homeLabel: UILabel!
+    @IBOutlet weak var awayLabel: UILabel!
     
     var locationString = "Denny Field"
     
@@ -88,7 +90,7 @@ class AddGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "teamPicker" {
             let button = sender as! UIButton
-            if button.currentTitle == "Home" {
+            if button == homeButton {
                 teamBeingSelected = "home"
             } else {
                 teamBeingSelected = "away"
