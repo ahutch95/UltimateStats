@@ -82,11 +82,19 @@ class AddTeamTableViewController: UITableViewController {
     
     ref.child("users").child(key).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
       if !(snapshot.value is NSNull){
+        
         var value = (snapshot.value as? NSArray)!
         
         
         ref.child("users").child(key).child("teams").setValue(value.adding(self.nameTextField.text) )
-      }
+       
+        
+      }else{
+        var ar =  [] as! NSArray
+        ref.child("users").child(key).child("teams").setValue(ar.adding(self.nameTextField.text!))
+        
+
+        }
     }) { (error) in
       print(error.localizedDescription)
     }

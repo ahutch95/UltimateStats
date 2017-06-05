@@ -61,6 +61,7 @@ class AddGameViewController: UIViewController {
                 for (key, values) in value {
                     
                     ref.child("users").child(key as! String).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
+                         if !(snapshot.value is NSNull){
                         var team = (snapshot.value as? NSArray)!
                         
                         
@@ -71,7 +72,7 @@ class AddGameViewController: UIViewController {
                             }
                         }
                         
-                        
+                        }
                     }) { (error) in
                         print(error.localizedDescription)
                     }

@@ -20,7 +20,9 @@ class TeamPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
     picker.dataSource = self
     picker.delegate = self
     
-    selectedTeam = teams?[0] as! String
+    if(teams! != []){
+        selectedTeam = teams?[0] as! String
+    }
   }
   
   override func didReceiveMemoryWarning() {
