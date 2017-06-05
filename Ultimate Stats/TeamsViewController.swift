@@ -20,27 +20,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableView.refreshControl = refreshControl
     tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     
-    ref = FIRDatabase.database().reference()
-    
-    
-    let userID = FIRAuth.auth()?.currentUser?.uid
-    ref = FIRDatabase.database().reference()
-    ref.child("users").child(userID!).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
-      var newItems: [String] = []
-      if !(snapshot.value is NSNull){
-        var value = (snapshot.value as? Array<String>)!
-        
-        for item in value{
-          newItems.append(item)
-        }
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.users = newItems
-        self.tableView.reloadData()
-      }
-    }) { (error) in
-      print(error.localizedDescription)
-    }
+update()
     
   }
   
@@ -52,6 +32,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   func refresh() {
+    update()
     tableView.reloadData()
     tableView.refreshControl?.endRefreshing()
   }
@@ -73,6 +54,29 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
   }
+    func update(){
+        ref = FIRDatabase.database().reference()
+        
+        
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref = FIRDatabase.database().reference()
+        ref.child("users").child(userID!).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? Array<String>)!
+                
+                for item in value{
+                    newItems.append(item)
+                }
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.users = newItems
+                self.tableView.reloadData()
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 }
 
 

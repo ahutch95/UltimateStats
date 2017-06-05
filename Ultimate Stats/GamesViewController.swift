@@ -63,6 +63,8 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                     ref.child("users").child(key as! String).child("games").observeSingleEvent(of: .value, with: { (snapshot) in
                         if !(snapshot.value is NSNull){
+                            if let game = snapshot.value as? [NSArray] {
+                            } else {
                             var game = (snapshot.value as? NSDictionary)!
                             
                             
@@ -80,6 +82,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                     print(error.localizedDescription)
                                 }
                                 
+                            }
                             }
                             
                         }
@@ -122,8 +125,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             "assists": 0,
                             "turns": 0,
                             "defends": 0,
-                            "teams": ["none"],
-                            "games": ["none"]] as [String : Any]
+                            "teams": ["none"]] as [String : Any]
                 userExsists = true
                 
                 self.ref.child("users").child(userID!).setValue(user)
@@ -136,6 +138,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func refresh() {
+        getData()
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
     }

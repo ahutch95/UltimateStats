@@ -28,6 +28,7 @@ class AddGameViewController: UIViewController {
     @IBAction func upload(_ sender: Any) {
         let userID = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
+        datePicker.timeZone = NSTimeZone(name: "US/Pacific") as! TimeZone
         print(datePicker.date.description)
         let game = ["home":homeTeam,"away":awayTeam, "time":datePicker.date.description] as [String : Any]
         
