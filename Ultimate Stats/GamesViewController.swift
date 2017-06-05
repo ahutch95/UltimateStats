@@ -49,7 +49,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getData(){
-        
+         games = []
         let ref = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
@@ -124,8 +124,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             "goals": 0,
                             "assists": 0,
                             "turns": 0,
-                            "defends": 0,
-                            "teams": ["none"]] as [String : Any]
+                            "defends": 0] as [String : Any]
                 userExsists = true
                 
                 self.ref.child("users").child(userID!).setValue(user)
@@ -138,6 +137,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func refresh() {
+        test = []
         getData()
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
