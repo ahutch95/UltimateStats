@@ -977,7 +977,7 @@
             </objects>
             <point key="canvasLocation" x="4696.8000000000002" y="-555.47226386806597"/>
         </scene>
-        <!--Team Detail View Controller-->
+        <!--Add Team-->
         <scene sceneID="VF0-HN-itF">
             <objects>
                 <tableViewController storyboardIdentifier="detail" id="YHW-Gq-mzh" customClass="TeamDetailViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
@@ -1016,6 +1016,13 @@
                             <outlet property="delegate" destination="YHW-Gq-mzh" id="GPX-NJ-P7V"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Add Team" id="cuP-vK-vyv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9ve-8q-sYn">
+                            <connections>
+                                <action selector="done:" destination="dmQ-Yv-Qon" id="tMh-NI-3f0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6Y-eg-XGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

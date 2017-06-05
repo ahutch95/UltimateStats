@@ -60,9 +60,7 @@ update()
     
     selectedName =  groceryItem
     
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! TeamDetailViewController
-    vc.team = selectedName
-    self.present(vc, animated: true, completion: nil)
+
   }
     
     func update(){
@@ -89,13 +87,13 @@ update()
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      
-//        if segue.identifier == "toTeamDetail" {
-//            let destination = segue.destination as! TeamDetailViewController
-//            destination.team = selectedName // replace with selected team/firebase identifier
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      let d = tableView.indexPathForSelectedRow
+        if segue.identifier == "toTeamDetail" {
+            let destination = segue.destination as! TeamDetailViewController
+            destination.team = users[(d?.row)!] // replace with selected team/firebase identifier
+        }
+    }
 }
 
 
