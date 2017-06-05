@@ -15,7 +15,7 @@ import FirebaseDatabase
 
 class AddGameViewController: UIViewController {
     
-   // @IBOutlet weak var name: UITextField!
+    // @IBOutlet weak var name: UITextField!
     
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -53,7 +53,7 @@ class AddGameViewController: UIViewController {
                     
                     ref.child("users").child(key as! String).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
                         var team = (snapshot.value as? NSArray)!
-                       
+                        
                         
                         for each in team{
                             print(each as! String)

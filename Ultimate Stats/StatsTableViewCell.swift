@@ -20,24 +20,22 @@ class StatsTableViewCell: UITableViewCell {
   @IBOutlet var dsLabel: UILabel!
   @IBOutlet var dsStepper: UIStepper!
   var id = ""
-    
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
-    
+  
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
   }
   
   @IBAction func stepperPressed(_ sender: UIStepper) {
     var label: UILabel!
     if sender == goalsStepper {
       label = goalsLabel
-        
+      
     } else if sender == assistsStepper {
       label = assistsLabel
     } else if sender == turnsStepper {
