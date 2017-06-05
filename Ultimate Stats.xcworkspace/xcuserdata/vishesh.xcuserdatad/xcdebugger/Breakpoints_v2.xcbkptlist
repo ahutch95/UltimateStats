@@ -41,14 +41,78 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ultimate Stats/GamesViewController.swift"
-            timestampString = "517900004.596187"
+            filePath = "Ultimate Stats/AddTeamTableViewController.swift"
+            timestampString = "518066342.688703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "createNewUserInDatabase()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/AddTeamTableViewController.swift"
+            timestampString = "518066342.688703"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/GamesViewController.swift"
+            timestampString = "518325884.827976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Ultimate Stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishesh/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "518324826.421455"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Ultimate Stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishesh/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "518324826.425262"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "951">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +122,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ultimate Stats/GamesViewController.swift"
-            timestampString = "517900004.596187"
+            timestampString = "518325884.827976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "createNewUserInDatabase()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/GamesViewController.swift"
+            timestampString = "518325884.827976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ultimate_Stats.GamesViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "Ultimate Stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishesh/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "518325832.573553"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1638">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "Ultimate Stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishesh/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "518325832.576369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "2720">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ultimate_Stats.GamesViewController.(viewDidLoad () -&gt; ()).(closure #2)"
+                  moduleName = "Ultimate Stats"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishesh/UltimateStats/Ultimate%20Stats/GamesViewController.swift"
+                  timestampString = "518325832.579519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,12 +201,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ultimate Stats/GamesViewController.swift"
-            timestampString = "517900004.596187"
+            timestampString = "518326187.325233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "createNewUserInDatabase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/StatsViewController.swift"
+            timestampString = "518328147.983213"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "done(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +232,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ultimate Stats/GamesViewController.swift"
-            timestampString = "517900004.596187"
+            filePath = "Ultimate Stats/PlayerStatsViewController.swift"
+            timestampString = "518328605.418369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "createNewUserInDatabase()"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ultimate Stats/PlayerStatsViewController.swift"
+            timestampString = "518328444.299408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

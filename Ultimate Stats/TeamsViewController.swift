@@ -5,16 +5,56 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  var ref:FIRDatabaseReference!
+  var users: [String] = []
+  
+  let refreshControl = UIRefreshControl()
+  
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    var ref:FIRDatabaseReference!
-    var users: [String] = []
+    tableView.refreshControl = refreshControl
+    tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    
+update()
+    
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  
+  
+  func refresh() {
+    update()
+    tableView.reloadData()
+    tableView.refreshControl?.endRefreshing()
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return users.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! iQuizTableViewCell
+    let groceryItem = users[indexPath.row]
+    print("cell # \(indexPath.row) selected")
+    
+    cell.questionLabel.text = groceryItem
     
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    return cell
+  }
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+  }
+    func update(){
         ref = FIRDatabase.database().reference()
         
         
@@ -36,34 +76,6 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    //creates new user
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! iQuizTableViewCell
-        let groceryItem = users[indexPath.row]
-        print("cell # \(indexPath.row) selected")
-        
-        cell.questionLabel.text = groceryItem
-        
-        
-        return cell
-    }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // cell selected code here
     }
 }
 
