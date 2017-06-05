@@ -7,20 +7,77 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class TeamDetailViewController: UITableViewController {
     
     var team: String?
-
+    var players = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        print(team)
+        if(team != nil){
+        getData()
+        }
+        
     }
+
+    func getData(){
+        
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                for (key, values) in value {
+                    
+                    ref.child("users").child(key as! String).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if !(snapshot.value is NSNull){
+                            
+                                var teams = (snapshot.value as? NSArray)!
+                            if(teams.contains(self.team)){
+                                ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
+                                     var name = (snapshot.value as? String)!
+                                   self.players.append(name)
+                                    
+                                    self.tableView.delegate = self
+                                    self.tableView.dataSource = self
+                                    self.tableView.reloadData()
+
+                                    
+                                }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            
+                            
+                        }
+                        
+                        
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                    
+                }
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.reloadData()
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,23 +88,30 @@ class TeamDetailViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.players.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RosterCell", for: indexPath)
+        
+        
+        
+        cell.accessoryType = .none
 
-        // Configure the cell...
+        let playerName = self.players[indexPath.row]
+        
+        cell.textLabel!.text = playerName
 
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

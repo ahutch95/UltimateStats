@@ -8,7 +8,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   var ref:FIRDatabaseReference!
   var users: [String] = []
-  
+  var selectedName = ""
   let refreshControl = UIRefreshControl()
   
   
@@ -51,9 +51,20 @@ update()
     
     return cell
   }
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+    
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! iQuizTableViewCell
+    let groceryItem = users[indexPath.row]
+    print("cell # \(indexPath.row) selected")
+    
+    selectedName =  groceryItem
+    
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! TeamDetailViewController
+    vc.team = selectedName
+    self.present(vc, animated: true, completion: nil)
   }
+    
     func update(){
         ref = FIRDatabase.database().reference()
         
@@ -78,12 +89,13 @@ update()
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTeamDetail" {
-            let destination = segue.destination as! TeamDetailViewController
-            destination.team = "" // replace with selected team/firebase identifier
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      
+//        if segue.identifier == "toTeamDetail" {
+//            let destination = segue.destination as! TeamDetailViewController
+//            destination.team = selectedName // replace with selected team/firebase identifier
+//        }
+//    }
 }
 
 

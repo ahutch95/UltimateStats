@@ -143,7 +143,8 @@ class RosterTableViewController: UITableViewController {
         toRemove.remove(at: indexPath.row)
         
       case 1:
-        toAdd.remove(at: indexPath.row)            default:
+        toAdd.remove(at: indexPath.row)
+      default:
         break
       }
       cell.accessoryType = .none
