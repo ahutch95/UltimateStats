@@ -140,10 +140,24 @@ class RosterTableViewController: UITableViewController {
     } else {
       switch indexPath.section {
       case 0:
-        toRemove.remove(at: indexPath.row)
+        var i = 0
+        for player in toRemove {
+            if player == [playerID:playerName] {
+                toRemove.remove(at: i)
+                break
+            }
+            i += 1
+        }
         
       case 1:
-        toAdd.remove(at: indexPath.row)
+        var i = 0
+        for player in toAdd {
+            if player == [playerID:playerName] {
+                toAdd.remove(at: i)
+                break
+            }
+            i += 1
+        }
       default:
         break
       }
