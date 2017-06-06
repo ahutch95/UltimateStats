@@ -165,4 +165,17 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return test.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let d = tableView.indexPathForSelectedRow
+        if segue.identifier == "toGameDetail" {
+            let groceryItem = test[(d?.row)!]
+            let destination = segue.destination as! GameDetailViewController
+            destination.home = groceryItem.value(forKey: "home") as! String
+            destination.away = groceryItem.value(forKey: "away") as! String
+            destination.time = groceryItem.value(forKey: "time") as! String
+            
+        }
+    }
+
+    
 }

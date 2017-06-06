@@ -344,7 +344,7 @@
             </objects>
             <point key="canvasLocation" x="5490" y="89"/>
         </scene>
-        <!--Game Detail View Controller-->
+        <!--Games-->
         <scene sceneID="8iF-aD-qcD">
             <objects>
                 <viewController id="7YP-zD-f8B" customClass="GameDetailViewController" customModule="Ultimate_Stats" customModuleProvider="target" sceneMemberID="viewController">
@@ -385,7 +385,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="185" height="499"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterCell" textLabel="o3D-tM-n7X" detailTextLabel="4K7-a1-uMJ" style="IBUITableViewCellStyleSubtitle" id="E9P-Bj-ID2">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterCell" textLabel="o3D-tM-n7X" detailTextLabel="4K7-a1-uMJ" style="IBUITableViewCellStyleSubtitle" id="E9P-Bj-ID2">
                                                 <rect key="frame" x="0.0" y="28" width="185" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9P-Bj-ID2" id="TfT-ea-y4T">
@@ -460,6 +460,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Games" id="2Jt-GA-zte">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="H2j-fy-3bm"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="awayLable" destination="3SA-CI-IKa" id="mJ1-cT-U8v"/>
                         <outlet property="awayTable" destination="H4o-gk-a5k" id="IyA-6L-PAP"/>
@@ -969,7 +972,7 @@
                                             <outlet property="away" destination="mFi-lV-gZ0" id="ZKs-Oj-EDt"/>
                                             <outlet property="home" destination="ATF-j1-6x1" id="whs-aE-nYV"/>
                                             <outlet property="time" destination="hep-1d-xqo" id="Jto-E0-fQB"/>
-                                            <segue destination="7YP-zD-f8B" kind="showDetail" id="Kkv-Gr-dt1"/>
+                                            <segue destination="7YP-zD-f8B" kind="showDetail" identifier="toGameDetail" id="Kkv-Gr-dt1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1184,6 +1187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPJ-Qu-ZVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="u5g-I2-Jnf" userLabel="Exit" sceneMemberID="exit"/>
+                <navigationItem title="Add Team" id="5Ol-5S-gwH"/>
             </objects>
             <point key="canvasLocation" x="4697" y="-1283"/>
         </scene>

@@ -21,27 +21,104 @@ class GameDetailViewController:  UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var dateLabel: UILabel!
     
     
-    let test = ["One","Two","Three"]
-    let test1 = ["Blue","Yello","Green"]
+    var homePlayers = [String]()
+    var awayPlayers = [String]()
+    var home: String?
+    var away: String?
+    var time: String?
+    
     override func viewDidLoad() {
-        self.homeTable.delegate = self as! UITableViewDelegate
-        self.awayTable.dataSource = self as! UITableViewDataSource
+        homeName.text = home
+        awayLable.text = away
+        dateLabel.text = time
+        getDataHome()
+//        getDataAway()
         
-        self.awayTable.delegate = self as! UITableViewDelegate
-        self.homeTable.dataSource = self as! UITableViewDataSource
-        self.homeTable.reloadData()
-        self.awayTable.reloadData()
     }
+    
+    func getDataHome(){
+        
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            var newItems: [String] = []
+            
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                for (key, values) in value {
+                    
+                    ref.child("users").child(key as! String).child("teams").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if !(snapshot.value is NSNull){
+                            
+                            var teams = (snapshot.value as? NSArray)!
+                            
+                            if(teams.contains(self.home!)){
+                                ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
+                                    var name = (snapshot.value as? String)!
+                                    
+                                    self.homePlayers.append(name)
+                                    self.homeTable.delegate = self
+                                    self.homeTable.dataSource = self
+                                    self.homeTable.reloadData()
+                                   
+                                    
+                                    
+                                }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+                         
+                                
+                            }
+                            if(teams.contains(self.away!)){
+                                ref.child("users").child(key as! String).child("firstName").observeSingleEvent(of: .value, with: { (snapshot) in
+                                    var name = (snapshot.value as? String)!
+                                    print(name)
+                                    self.awayPlayers.append(name)
+                                    self.awayTable.delegate = self
+                                    self.awayTable.dataSource = self
+                                    self.awayTable.reloadData()
+                                    
+                                    
+                                    
+                                }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+                                
+                                
+                            }
+
+
+                            
+                            
+                        }
+                        
+                        
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                    
+                }
+                
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RosterCell", for: indexPath) 
-//        let groceryItem = test[indexPath.row]
-        print("cell # \(indexPath.row) selected")
-        
+
         if(tableView == self.homeTable){
-            cell.textLabel?.text = test[indexPath.row]
+            cell.textLabel?.text = homePlayers[indexPath.row]
         }
         if(tableView == self.awayTable){
-            cell.textLabel?.text = test1[indexPath.row]
+            cell.textLabel?.text = awayPlayers[indexPath.row]
         }
         
         
@@ -54,7 +131,12 @@ class GameDetailViewController:  UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        if(tableView == self.homeTable){
+            return self.homePlayers.count
+        }else{
+            return self.awayPlayers.count
+        }
+       
     }
     
 }
