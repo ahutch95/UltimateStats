@@ -23,6 +23,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     var test: [NSDictionary] = []
+    var gameKeys = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         getData()
-        
+       
         
         
     }
@@ -74,15 +75,18 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                     var g = (snapshot.value as? NSDictionary)!
                                     
                                     self.test.append(g)
+                                    self.gameKeys.append(keys as! String)
                                     print("here")
                                     self.tableView.delegate = self
                                     self.tableView.dataSource = self
                                     self.tableView.reloadData()
+                                    
                                 }) { (error) in
                                     print(error.localizedDescription)
                                 }
                                 
                             }
+                                
                             }
                             
                         }
@@ -158,7 +162,11 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // cell selected code here
+        remove()
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
+
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -177,5 +185,33 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    func remove(){
+        let path = tableView.indexPathForSelectedRow
+        //let remove = gameKeys[ (path?.row)!]
+        
+       let tempkey = "-KluMhS0a6Cqs7FpAyiq"
+        ref = FIRDatabase.database().reference()
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+          
+            
+            if !(snapshot.value is NSNull){
+                var value = (snapshot.value as? NSDictionary)!
+                
+                for (key, values) in value {
+
+        
+                    self.ref.child("users").child(key as! String).child("games").child(tempkey).removeValue { (error, ref) in
+                if error != nil {
+                    print("error \(error)")
+                }
+            }
+        
+                }
+        
+    }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
 }
