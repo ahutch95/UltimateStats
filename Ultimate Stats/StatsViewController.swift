@@ -24,6 +24,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.allowsSelection = false
   }
   
   @IBAction func done(_ sender: Any) {

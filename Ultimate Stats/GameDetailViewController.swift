@@ -32,7 +32,10 @@ class GameDetailViewController:  UIViewController, UITableViewDelegate, UITableV
         awayLable.text = away
         dateLabel.text = time
         getDataHome()
-//        getDataAway()
+
+        
+        homeTable.allowsSelection = false
+        awayTable.allowsSelection = false
         
     }
     

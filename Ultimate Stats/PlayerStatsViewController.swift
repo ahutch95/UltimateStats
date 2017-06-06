@@ -19,6 +19,8 @@ class PlayerStatsViewController: UIViewController, UITableViewDelegate, UITableV
   override func viewDidLoad() {
     
     super.viewDidLoad()
+    
+    tableView.allowsSelection = false
 
     refresh()
     tableView.refreshControl = refreshControl
