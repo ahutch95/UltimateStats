@@ -15,6 +15,7 @@ class TeamDetailViewController: UITableViewController {
     
     var team: String?
     var players = [String]()
+    var emails = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,14 +48,24 @@ class TeamDetailViewController: UITableViewController {
                                      var name = (snapshot.value as? String)!
                                    self.players.append(name)
                                     
-                                    self.tableView.delegate = self
-                                    self.tableView.dataSource = self
-                                    self.tableView.reloadData()
-
+                                    
                                     
                                 }) { (error) in
                                     print(error.localizedDescription)
                                 }
+                                ref.child("users").child(key as! String).child("email").observeSingleEvent(of: .value, with: { (snapshot) in
+                                    var email = (snapshot.value as? String)!
+                                    self.emails.append(email)
+                                    
+                                    self.tableView.delegate = self
+                                    self.tableView.dataSource = self
+                                    self.tableView.reloadData()
+                                    
+                                    
+                                }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+
                             }
                             
                             
@@ -105,8 +116,11 @@ class TeamDetailViewController: UITableViewController {
         cell.accessoryType = .none
 
         let playerName = self.players[indexPath.row]
-        
+        let email = self.emails[indexPath.row]
+
         cell.textLabel!.text = playerName
+        cell.detailTextLabel!.text = email
+
 
         
         return cell
