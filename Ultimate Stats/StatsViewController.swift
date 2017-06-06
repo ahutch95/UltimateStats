@@ -32,6 +32,7 @@ class StatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     for cell in cells {
       upload(cell: cell)
     }
+    self.navigationController?.popViewController(animated: true)
   }
   
   func upload(cell: StatsTableViewCell) {
