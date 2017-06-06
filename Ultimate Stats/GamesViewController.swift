@@ -162,7 +162,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        remove()
+       
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
 
@@ -185,11 +185,11 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
-    func remove(){
-        let path = tableView.indexPathForSelectedRow
-        //let remove = gameKeys[ (path?.row)!]
+    func remove(index: Int){
         
-       let tempkey = "-KluMhS0a6Cqs7FpAyiq"
+        let remove = gameKeys[index]
+        
+       
         ref = FIRDatabase.database().reference()
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
           
@@ -200,7 +200,7 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 for (key, values) in value {
 
         
-                    self.ref.child("users").child(key as! String).child("games").child(tempkey).removeValue { (error, ref) in
+                    self.ref.child("users").child(key as! String).child("games").child(remove).removeValue { (error, ref) in
                 if error != nil {
                     print("error \(error)")
                 }
@@ -211,6 +211,19 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
         }) { (error) in
             print(error.localizedDescription)
+        }
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            remove(index: indexPath.row)
+            refresh()
+            // delete the table view row
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
     
