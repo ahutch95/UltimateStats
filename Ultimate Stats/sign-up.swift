@@ -19,6 +19,7 @@ class SignUp: UIViewController {
   @IBOutlet weak var last: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround()
     
     // Do any additional setup after loading the view, typically from a nib.
   }

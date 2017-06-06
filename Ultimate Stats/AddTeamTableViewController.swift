@@ -14,6 +14,7 @@ import FirebaseDatabase
 class AddTeamTableViewController: UITableViewController {
   
   var newRoster = [[String:String]]()
+   
   
   var players:String = "Chess" {
     didSet {
@@ -50,6 +51,7 @@ class AddTeamTableViewController: UITableViewController {
         playerSelect.selectedPlayers = players
       }
     }
+
   }
   
   
@@ -72,6 +74,8 @@ class AddTeamTableViewController: UITableViewController {
     for(key, value) in roster{
       upload(key: key as! String,value: value as! String)
     }
+    
+    self.navigationController?.popViewController(animated: true)
   }
   
   func upload(key: String, value: String){

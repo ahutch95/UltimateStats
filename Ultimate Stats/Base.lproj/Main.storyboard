@@ -791,7 +791,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V9e-rV-qcI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Games" image="Games" id="Vfe-Kz-FQv"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gl0-Ub-rFI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gl0-Ub-rFI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -810,7 +810,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="suE-wn-vZz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Teams" image="Teams" id="RVF-hH-RA6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="26M-9J-dRf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="26M-9J-dRf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -829,7 +829,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E1e-lH-bvM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Player Stats" image="Stats" id="iK1-qZ-kk8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jhl-5G-DkF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jhl-5G-DkF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -897,7 +897,7 @@
                     <navigationItem key="navigationItem" title="Teams" id="sDr-n2-eIj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6fs-2M-fmt">
                             <connections>
-                                <segue destination="dmQ-Yv-Qon" kind="show" id="OYa-mz-WgJ"/>
+                                <segue destination="dmQ-Yv-Qon" kind="show" identifier="toRoster" id="OYa-mz-WgJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
